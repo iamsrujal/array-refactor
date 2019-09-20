@@ -8,9 +8,10 @@ npm install array-refactor --save
 
 ## Usage
 
-Hide sensitive information from object or array of object with deep searching.
+Hide sensitive information from an object or array of objects with deep searching.
 
-Use of this array-refactor is refactor user or any personal data by having sensitive information and by using array-refactor you can remove that sensitive data before move to logs or public.
+array-refactor is refactoring any sensitive data in user collection or any personal data. 
+Currently, by using array-refactor you can remove that sensitive data before transfer to logs or public.
 There are many uses of array-refactor.
 
 ```javascript
