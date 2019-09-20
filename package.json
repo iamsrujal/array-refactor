@@ -1,6 +1,6 @@
 {
   "name": "array-refactor",
-  "main": "array-refactor.ts",
+  "main": "array-refactor.js",
   "description": "Hide sensitive information from array or array of object",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
