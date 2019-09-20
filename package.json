@@ -6,18 +6,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "array",
-    "array",
-    "of",
     "objects",
+    "ObjectArray",
     "hide",
     "sensitive",
     "information",
-    "hide",
     "node",
     "nodeJs",
     "JSONArray",
-    "JSON"
+    "password"
   ],
   "author": {
     "name": "Srujal Patel",
