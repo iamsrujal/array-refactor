@@ -1,8 +1,7 @@
 {
   "name": "array-refactor",
-  "version": "1.0.0",
-  "description": "Hide sensitive information from array or array of object",
   "main": "array-refactor.ts",
+  "description": "Hide sensitive information from array or array of object",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,5 +23,15 @@
     "name": "Srujal Patel",
     "email": "srujal.patel02@gmail.com"
   },
-  "license": "ISC"
+  "bugs": {
+    "url": "https://github.com/iamsrujal/array-refactor/issues"
+  },
+  "deprecated": false,
+  "homepage": "https://github.com/iamsrujal/array-refactor",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/iamsrujal/array-refactor.git"
+  },
+  "license": "MIT",
+  "version": "1.0.0"
 }
