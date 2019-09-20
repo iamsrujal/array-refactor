@@ -6,14 +6,16 @@
 npm install array-refactor --save
 ```
 
+## Usage
+
 Hide sensitive information from array or array of object with deep searching.
 
 Use of this array-refactor is maintaing log data but that data is having sensitive insormation and by using array-refactor you can remove that sensitive data before move into logs still there are many use of array-refactor.
 
-## Usage
-
 ```javascript
 const arrayRefactor = require('array-refactor');
+
+// There is no limit for array inside array
 
 let arr = [
   {
@@ -35,7 +37,7 @@ let arr = {
   Address: 'address'
 }
 
-// keys are must be array for refactor
+// keys are must be array or string for refactor
 
 let keysArr = ['password', 'userToken']
 
