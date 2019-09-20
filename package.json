@@ -1,0 +1,28 @@
+{
+  "name": "array-refactor",
+  "version": "1.0.0",
+  "description": "Hide sensitive information from array or array of object",
+  "main": "array-refactor.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "array",
+    "array",
+    "of",
+    "objects",
+    "hide",
+    "sensitive",
+    "information",
+    "hide",
+    "node",
+    "nodeJs",
+    "JSONArray",
+    "JSON"
+  ],
+  "author": {
+    "name": "Srujal Patel",
+    "email": "srujal.patel02@gmail.com"
+  },
+  "license": "ISC"
+}
