@@ -80,26 +80,14 @@ function deleteKey(insideArr, arrayOfKeys) {
   if (Array.isArray(insideArr)) {
     return insideArr.map(d => {
       checkProperty(d, arrayOfKeys);
-      removeKey(d, arrayOfKeys);
+      if (typeof d === 'object') {
+        removeKey(d, arrayOfKeys);
+      }
       return d;
     })
   } else {
     checkProperty(insideArr, arrayOfKeys);
     removeKey(insideArr, arrayOfKeys)
-    return insideArr;
-  }
-}
-
-function deleteKeyForPush(insideArr, arrayOfKeys) {
-  if (Array.isArray(insideArr)) {
-    return insideArr.map(d => {
-      checkPropertyForPush(d, arrayOfKeys);
-      removeOtherKeyForPush(d, arrayOfKeys);
-      return d;
-    })
-  } else {
-    checkPropertyForPush(insideArr, arrayOfKeys);
-    removeOtherKeyForPush(insideArr, arrayOfKeys);
     return insideArr;
   }
 }
@@ -119,27 +107,6 @@ function removeKey(insideArr, arrayOfKeys) {
   }
 }
 
-function removeOtherKeyForPush(insideArr, arrayOfKeys) {
-  if (Array.isArray(arrayOfKeys)) {
-    for (let prop in insideArr) {
-      if (!arrayOfKeys.includes(prop)) {
-        delete insideArr[prop];
-      }
-    }
-    arrayOfKeys.forEach(k => {
-      if (!insideArr.hasOwnProperty(k)) {
-        delete insideArr[k];
-      }
-    })
-  } else {
-    for (let prop in insideArr) {
-      if (prop !== arrayOfKeys) {
-        delete insideArr[prop];
-      }
-    }
-  }
-}
-
 // find out property is having an array or object
 function checkProperty(arrObj, arrayOfKeys) {
   for (let prop in arrObj) {
@@ -149,10 +116,43 @@ function checkProperty(arrObj, arrayOfKeys) {
   }
 }
 
+function deleteKeyForPush(insideArr, arrayOfKeys) {
+  if (Array.isArray(insideArr)) {
+    return insideArr.map(d => {
+      checkPropertyForPush(d, arrayOfKeys);
+      if (typeof d === 'object') {
+        removeOtherKeyForPush(d, arrayOfKeys);
+      }
+      return d;
+    })
+  } else {
+    checkPropertyForPush(insideArr, arrayOfKeys);
+    removeOtherKeyForPush(insideArr, arrayOfKeys);
+    return insideArr;
+  }
+}
+
+function removeOtherKeyForPush(insideArr, arrayOfKeys) {
+  if (Array.isArray(arrayOfKeys)) {
+    for (let prop in insideArr) {
+      if (!arrayOfKeys.includes(prop)) {
+        delete insideArr[prop];
+      }
+    }
+  } else {
+    for (let prop in insideArr) {
+      if (prop !== arrayOfKeys) {
+        delete insideArr[prop];
+      }
+    }
+  }
+}
+
 function checkPropertyForPush(arrObj, arrayOfKeys) {
   for (let prop in arrObj) {
     if (typeof arrObj[prop] === 'object' || Array.isArray(arrObj[prop])) {
       deleteKeyForPush(arrObj[prop], arrayOfKeys);
+      // removeKey(arrObj, arrayOfKeys);
     }
   }
 }
