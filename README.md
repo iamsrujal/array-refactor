@@ -94,5 +94,5 @@ $ npm install && npm test
 * [github/iamsrujal](https://github.com/iamsrujal)
 
 ### License
-Copyright © 2017, [Srujal Patel](https://github.com/iamsrujal/array-refactor).
+Copyright © 2019, [Srujal Patel](https://github.com/iamsrujal/array-refactor).
 Released under the [MIT License](LICENSE).
