@@ -1,1 +1,7 @@
-array-refactor-1.0.0.tgz
+# test
+test*
+
+# npm
+node_modules
+package-lock*
+npm-debug.log

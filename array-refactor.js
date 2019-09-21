@@ -8,10 +8,13 @@
 'use strict';
 
 // Remove key from object function for array refactor
-let arrayRefactorPop = (arr, arrayOfKeys) => {
+let pop = (arr, arrayOfKeys) => {
   let temp = [];
   // check given varibale is type of array or object
-  if (arr && typeof arr === 'object' && arrayOfKeys) {
+  if (arr && typeof arr === 'object') {
+    if(!arrayOfKeys) {
+      return arr;
+    }
     if (Array.isArray(arr)) {
       temp = arr.map(d => {
         return deleteKey(d, arrayOfKeys);
@@ -35,10 +38,13 @@ let arrayRefactorPop = (arr, arrayOfKeys) => {
 }
 
 // Push object from object function for array refactor
-let arrayRefactorPush = (arr, arrayOfKeys) => {
+let push = (arr, arrayOfKeys) => {
   let temp = [];
   // check given varibale is type of array or object
-  if (arr && typeof arr === 'object' && arrayOfKeys) {
+  if (arr && typeof arr === 'object') {
+    if(!arrayOfKeys) {
+      return arr;
+    }
     if (Array.isArray(arr)) {
       temp = arr.map(d => {
         let obj = {};
@@ -124,7 +130,7 @@ function checkProperty(arrObj, arrayOfKeys) {
 }
 
 module.exports = {
-  arrayRefactorPop,
-  arrayRefactorPush
+  pop,
+  push
 
 };

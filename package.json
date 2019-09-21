@@ -1,21 +1,19 @@
 {
   "name": "array-refactor",
   "main": "array-refactor.js",
-  "description": "Hide sensitive information from array or array of object",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "objects",
-    "ObjectArray",
-    "hide",
-    "sensitive",
-    "information",
-    "node",
-    "nodeJs",
-    "JSONArray",
-    "password"
+  "files": [
+    "array-refactor.js"
   ],
+  "description": "Hide/Show sensitive information from array or array of object",
+  "version": "1.0.0",
+  "homepage": "https://github.com/iamsrujal/array-refactor",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^6.2.0"
+  },
   "author": {
     "name": "Srujal Patel",
     "email": "srujal.patel02@gmail.com"
@@ -24,11 +22,23 @@
     "url": "https://github.com/iamsrujal/array-refactor/issues"
   },
   "deprecated": false,
-  "homepage": "https://github.com/iamsrujal/array-refactor",
   "repository": {
     "type": "git",
     "url": "git://github.com/iamsrujal/array-refactor.git"
   },
-  "license": "MIT",
-  "version": "1.0.0"
+  "keywords": [
+    "objects",
+    "ObjectArray",
+    "hide",
+    "pop",
+    "push",
+    "sensitive",
+    "information",
+    "node",
+    "nodeJs",
+    "JSONArray",
+    "password",
+    "grab"
+  ],
+  "license": "MIT"
 }

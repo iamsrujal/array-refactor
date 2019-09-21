@@ -47,7 +47,7 @@ let keysArr = ['password', 'userToken']
 
 let keysArr = 'password'
 
-arrayRefactor(arr, keysArr)
+arrayRefactor.pop(arr, keysArr)
 /* => [
         {
           name: 'Srujal Patel',
@@ -64,9 +64,35 @@ arrayRefactor(arr, keysArr)
         }
 */
 
+arrayRefactor.push(arr, keysArr)
+/* => [
+        {
+          password: '12345678',
+          userToken: 'xhfgg$3Ssf',
+        }
+      ]
+    OR
 
+    => {
+          password: '12345678',
+        }
+*/
 ```
 
-## License
+### Running tests
 
-MIT
+Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:
+
+```sh
+$ npm install && npm test
+```
+
+### Author
+
+**Srujal Patel**
+
+* [github/iamsrujal](https://github.com/iamsrujal)
+
+### License
+Copyright © 2017, [Srujal Patel](https://github.com/iamsrujal/array-refactor).
+Released under the [MIT License](LICENSE).
