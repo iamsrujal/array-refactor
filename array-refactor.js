@@ -27,9 +27,9 @@ let arrayRefactorPop = (arr, arrayOfKeys) => {
     return temp;
   } else {
     if (!arrayOfKeys) {
-      throw new Error("Second Parameter Should Be String Or Array Of Strings");
+      throw new Error("arrayRefactorPop Expects The Second Parameter To Be A String Or An Array Of Strings");
     } else {
-      throw new Error("First Parameter Should Be Object Or Array Of Objects");
+      throw new Error("arrayRefactorPop Expects The First Argument To Be An Object Or Array Of Objects");
     }
   }
 }
@@ -77,9 +77,9 @@ let arrayRefactorPush = (arr, arrayOfKeys) => {
     return temp;
   } else {
     if (!arrayOfKeys) {
-      throw new Error("Second Parameter Should Be String Or Array Of Strings");
+      throw new Error("arrayRefactorPop Expects The Second Parameter To Be A String Or An Array Of Strings");
     } else {
-      throw new Error("First Parameter Should Be Object Or Array Of Objects");
+      throw new Error("arrayRefactorPop Expects The First Argument To Be An Object Or Array Of Objects");
     }
   }
 }
