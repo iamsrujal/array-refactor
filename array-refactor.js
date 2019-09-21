@@ -8,11 +8,16 @@
 'use strict';
 
 // Remove key from object function for array refactor
+/**
+ * Remove key inside object or array of objects
+ * @param arr The element to search for.
+ * @param arrayOfKeys The key in this array of objects or object to remove.
+*/
 let pop = (arr, arrayOfKeys) => {
   let temp = [];
   // check given varibale is type of array or object
   if (arr && typeof arr === 'object') {
-    if(!arrayOfKeys) {
+    if (!arrayOfKeys) {
       return arr;
     }
     if (Array.isArray(arr)) {
@@ -20,7 +25,6 @@ let pop = (arr, arrayOfKeys) => {
         return deleteKey(d, arrayOfKeys);
       });
     } else {
-      // console.log()
       checkProperty(arr, arrayOfKeys);
       removeKey(arr, arrayOfKeys)
       temp = arr;
@@ -38,45 +42,26 @@ let pop = (arr, arrayOfKeys) => {
 }
 
 // Push object from object function for array refactor
+/**
+ * Push key with value inside object or array of objects and remove other key value pair
+ * @param arr The element to search for.
+ * @param arrayOfKeys The key in this array of objects or object to remain.
+*/
 let push = (arr, arrayOfKeys) => {
   let temp = [];
   // check given varibale is type of array or object
   if (arr && typeof arr === 'object') {
-    if(!arrayOfKeys) {
+    if (!arrayOfKeys) {
       return arr;
     }
     if (Array.isArray(arr)) {
       temp = arr.map(d => {
-        let obj = {};
-        if (Array.isArray(arrayOfKeys)) {
-          arrayOfKeys.forEach(k => {
-            if (d.hasOwnProperty(k)) {
-              // console.log(obj[k]);
-              obj[k] = d[k];
-            }
-          });
-        } else {
-          if (d.hasOwnProperty(arrayOfKeys)) {
-            obj[arrayOfKeys] = d[arrayOfKeys];
-          }
-        }
-        return obj;
+        return deleteKeyForPush(d, arrayOfKeys);
       })
     } else {
-      let obj = {};
-      if (Array.isArray(arrayOfKeys)) {
-        arrayOfKeys.forEach(k => {
-          if (arr.hasOwnProperty(k)) {
-            obj[k] = arr[k];
-          }
-        });
-      } else {
-        if (arr.hasOwnProperty(arrayOfKeys)) {
-          obj[arrayOfKeys] = arr[arrayOfKeys];
-        }
-      }
-      temp = obj;
-      // return temp;
+      checkPropertyForPush(arr, arrayOfKeys);
+      removeOtherKeyForPush(arr, arrayOfKeys);
+      return arr;
     }
   }
   if ((arr && typeof arr === 'object') || temp.length > 0 || Object.keys(temp).length > 0) {
@@ -105,6 +90,20 @@ function deleteKey(insideArr, arrayOfKeys) {
   }
 }
 
+function deleteKeyForPush(insideArr, arrayOfKeys) {
+  if (Array.isArray(insideArr)) {
+    return insideArr.map(d => {
+      checkPropertyForPush(d, arrayOfKeys);
+      removeOtherKeyForPush(d, arrayOfKeys);
+      return d;
+    })
+  } else {
+    checkPropertyForPush(insideArr, arrayOfKeys);
+    removeOtherKeyForPush(insideArr, arrayOfKeys);
+    return insideArr;
+  }
+}
+
 // remove key from object
 function removeKey(insideArr, arrayOfKeys) {
   if (Array.isArray(arrayOfKeys)) {
@@ -120,6 +119,27 @@ function removeKey(insideArr, arrayOfKeys) {
   }
 }
 
+function removeOtherKeyForPush(insideArr, arrayOfKeys) {
+  if (Array.isArray(arrayOfKeys)) {
+    for (let prop in insideArr) {
+      if (!arrayOfKeys.includes(prop)) {
+        delete insideArr[prop];
+      }
+    }
+    arrayOfKeys.forEach(k => {
+      if (!insideArr.hasOwnProperty(k)) {
+        delete insideArr[k];
+      }
+    })
+  } else {
+    for (let prop in insideArr) {
+      if (prop !== arrayOfKeys) {
+        delete insideArr[prop];
+      }
+    }
+  }
+}
+
 // find out property is having an array or object
 function checkProperty(arrObj, arrayOfKeys) {
   for (let prop in arrObj) {
@@ -129,8 +149,15 @@ function checkProperty(arrObj, arrayOfKeys) {
   }
 }
 
+function checkPropertyForPush(arrObj, arrayOfKeys) {
+  for (let prop in arrObj) {
+    if (typeof arrObj[prop] === 'object' || Array.isArray(arrObj[prop])) {
+      deleteKeyForPush(arrObj[prop], arrayOfKeys);
+    }
+  }
+}
+
 module.exports = {
   pop,
   push
-
 };
