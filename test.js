@@ -4,7 +4,7 @@ require('mocha');
 var assert = require('assert');
 var arrayRefactor = require('./');
 
-describe('diff', () => {
+describe('array-refactor', () => {
   it('should not modify array:', () => {
     let defaultArr = {
       "index": 0,
