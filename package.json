@@ -5,7 +5,7 @@
     "array-refactor.js"
   ],
   "description": "Hide/Show sensitive information from array or array of object",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "homepage": "https://github.com/iamsrujal/array-refactor",
   "scripts": {
     "test": "mocha"
