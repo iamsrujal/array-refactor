@@ -96,13 +96,17 @@ function deleteKey(insideArr, arrayOfKeys) {
 function removeKey(insideArr, arrayOfKeys) {
   if (Array.isArray(arrayOfKeys)) {
     arrayOfKeys.forEach(k => {
-      if (insideArr.hasOwnProperty(k)) {
-        delete insideArr[k];
+      if (insideArr) {
+        if (insideArr.hasOwnProperty(k)) {
+          delete insideArr[k];
+        }
       }
     })
   } else {
-    if (insideArr.hasOwnProperty(arrayOfKeys)) {
-      delete insideArr[arrayOfKeys];
+    if (insideArr) {
+      if (insideArr.hasOwnProperty(arrayOfKeys)) {
+        delete insideArr[arrayOfKeys];
+      }
     }
   }
 }
@@ -133,16 +137,18 @@ function deleteKeyForPush(insideArr, arrayOfKeys) {
 }
 
 function removeOtherKeyForPush(insideArr, arrayOfKeys) {
-  if (Array.isArray(arrayOfKeys)) {
-    for (let prop in insideArr) {
-      if (!arrayOfKeys.includes(prop)) {
-        delete insideArr[prop];
+  if (insideArr) {
+    if (Array.isArray(arrayOfKeys)) {
+      for (let prop in insideArr) {
+        if (!arrayOfKeys.includes(prop)) {
+          delete insideArr[prop];
+        }
       }
-    }
-  } else {
-    for (let prop in insideArr) {
-      if (prop !== arrayOfKeys) {
-        delete insideArr[prop];
+    } else {
+      for (let prop in insideArr) {
+        if (prop !== arrayOfKeys) {
+          delete insideArr[prop];
+        }
       }
     }
   }
