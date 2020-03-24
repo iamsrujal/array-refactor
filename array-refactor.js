@@ -17,17 +17,18 @@ let pop = (arr, arrayOfKeys) => {
   let temp = [];
   // check given varibale is type of array or object
   if (arr && typeof arr === 'object') {
+    let newArr = JSON.parse(JSON.stringify(arr));
     if (!arrayOfKeys) {
-      return arr;
+      return newArr;
     }
-    if (Array.isArray(arr)) {
-      temp = arr.map(d => {
+    if (Array.isArray(newArr)) {
+      temp = newArr.map(d => {
         return deleteKey(d, arrayOfKeys);
       });
     } else {
-      checkProperty(arr, arrayOfKeys);
-      removeKey(arr, arrayOfKeys)
-      temp = arr;
+      checkProperty(newArr, arrayOfKeys);
+      removeKey(newArr, arrayOfKeys)
+      temp = newArr;
     }
   }
   if ((arr && typeof arr === 'object') || temp.length > 0 || Object.keys(temp).length > 0) {
@@ -51,19 +52,21 @@ let push = (arr, arrayOfKeys) => {
   let temp = [];
   // check given varibale is type of array or object
   if (arr && typeof arr === 'object') {
+    let newArr = JSON.parse(JSON.stringify(arr));
     if (!arrayOfKeys) {
-      return arr;
+      return newArr;
     }
-    if (Array.isArray(arr)) {
-      temp = arr.map(d => {
+    if (Array.isArray(newArr)) {
+      temp = newArr.map(d => {
         return deleteKeyForPush(d, arrayOfKeys);
       })
     } else {
-      checkPropertyForPush(arr, arrayOfKeys);
-      removeOtherKeyForPush(arr, arrayOfKeys);
-      return arr;
+      checkPropertyForPush(newArr, arrayOfKeys);
+      removeOtherKeyForPush(newArr, arrayOfKeys);
+      temp = newArr;
     }
   }
+
   if ((arr && typeof arr === 'object') || temp.length > 0 || Object.keys(temp).length > 0) {
     return temp;
   } else {

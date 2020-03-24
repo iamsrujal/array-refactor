@@ -47,7 +47,7 @@ let keysArr = ['password', 'userToken']
 
 let keysArr = 'password'
 
-arrayRefactor.pop(arr, keysArr)
+let newArr = arrayRefactor.pop(arr, keysArr)
 /* => [
         {
           name: 'Srujal Patel',
@@ -64,7 +64,7 @@ arrayRefactor.pop(arr, keysArr)
         }
 */
 
-arrayRefactor.push(arr, keysArr)
+let newArr = arrayRefactor.push(arr, keysArr)
 /* => [
         {
           password: '12345678',
