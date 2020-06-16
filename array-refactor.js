@@ -10,8 +10,8 @@
 // Remove key from object function for array refactor
 /**
  * Remove key inside object or array of objects
- * @param arr The element to search for.
- * @param arrayOfKeys The key in this array of objects or object to remove.
+ * @param {Object[]} arr - The element to search for.
+ * @param {(string|string[])} arrayOfKeys - The key in this array of objects or object to remove.
 */
 let pop = (arr, arrayOfKeys) => {
   let temp = [];
@@ -45,8 +45,8 @@ let pop = (arr, arrayOfKeys) => {
 // Push object from object function for array refactor
 /**
  * Push key with value inside object or array of objects and remove other key value pair
- * @param arr The element to search for.
- * @param arrayOfKeys The key in this array of objects or object to remain.
+ * @param {Object[]} arr - The element to search for.
+ * @param {(string|string[])} arrayOfKeys - The key in this array of objects or object to remain.
 */
 let push = (arr, arrayOfKeys) => {
   let temp = [];

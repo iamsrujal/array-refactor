@@ -11,23 +11,21 @@ npm install array-refactor --save
 Hide/Show sensitive information from an object or array of objects with deep searching.
 
 array-refactor is refactoring any sensitive data in user collection or any personal data. 
-Currently, by using array-refactor you can remove that sensitive data before transfer to logs or public.
-There are many uses of array-refactor.
+
+By using array-refactor you can remove given sensitive data before transfer to logs or public. You can also create new array or object for sensitive data. There are many uses of array-refactor.
 
 ```javascript
 const arrayRefactor = require('array-refactor');
 
 // There is no limit for array inside array
 
-let arr = [
-  {
+let arr = [{
     name: 'Srujal Patel',
     password: '12345678',
     userToken: 'xhfgg$3Ssf',
     Gender: 'Male',
     Address: 'address'
-  }
-] 
+  }] 
 
 // OR
 
@@ -47,35 +45,41 @@ let keysArr = ['password', 'userToken']
 
 let keysArr = 'password'
 
-let newArr = arrayRefactor.pop(arr, keysArr)
-/* => [
-        {
-          name: 'Srujal Patel',
-          Gender: 'Male',
-          Address: 'address'
-        }
-      ]
-    OR
+// Pop method will remove all objects given by keysArr (Object Keys)
 
-    => {
-          name: 'Srujal Patel',
-          Gender: 'Male',
-          Address: 'address'
-        }
+let newArr = arrayRefactor.pop(arr, keysArr)
+
+/* => 
+      [{
+        name: 'Srujal Patel',
+        Gender: 'Male',
+        Address: 'address'
+      }]
+
+    OR
+      
+      {
+        name: 'Srujal Patel',
+        Gender: 'Male',
+        Address: 'address'
+      }
 */
 
+// Push method will remain in object or array basend on given by keysArr (Object Keys)
+
 let newArr = arrayRefactor.push(arr, keysArr)
-/* => [
-        {
-          password: '12345678',
-          userToken: 'xhfgg$3Ssf',
-        }
-      ]
+
+/* => 
+      [{
+        password: '12345678',
+        userToken: 'xhfgg$3Ssf',
+      }]
+
     OR
 
-    => {
-          password: '12345678',
-        }
+      {
+        password: '12345678',
+      }
 */
 ```
 

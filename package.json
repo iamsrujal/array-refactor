@@ -5,7 +5,7 @@
     "array-refactor.js"
   ],
   "description": "Hide/Show sensitive information from an object or array of objects with deep searching",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "homepage": "https://github.com/iamsrujal/array-refactor",
   "scripts": {
     "test": "mocha"
